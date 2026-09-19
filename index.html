@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>School Management System</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<section id="login" class="login"><div class="loginCard"><div class="crest">S</div><h1>School Management System</h1><p>One secure workspace for your school.</p>
+<label>Role</label><select id="role"><option>Administrator</option><option>Principal</option><option>Registrar</option><option>Teacher</option><option>Accounting</option><option>Parent</option><option>Student</option></select>
+<label>Username</label><input id="username" value="admin" autocomplete="username">
+<label>Password</label><input id="password" type="password" value="school123" autocomplete="current-password">
+<button id="loginBtn">SIGN IN</button><small>Demo: admin / school123</small></div></section>
+<section id="app" class="hidden"><header><div><b>SCHOOL COMMAND CENTER</b><span id="roleTag"></span></div><button id="logout">Log out</button></header>
+<main><section id="home"><div class="welcome"><p>ACADEMIC YEAR 2026–2027</p><h1>School Command Center</h1><p>Select a module to open its workspace.</p></div><div id="stats" class="stats"></div><div id="modules" class="modules"></div></section>
+<section id="workspace" class="hidden"><button id="back">← Back to Command Center</button><div class="workspaceHead"><div><p>MODULE WORKSPACE</p><h1 id="wsTitle"></h1></div><button id="addBtn">+ Add Record</button></div><input id="search" placeholder="Search records…"><div id="content"></div></section></main></section>
+<div id="modal" class="modal hidden"><form id="recordForm"><h2 id="formTitle">Add Record</h2><label>Name / Title</label><input id="fName" required><label>Details</label><input id="fDetails" required><label>Status</label><select id="fStatus"><option>Active</option><option>Pending</option><option>Completed</option><option>Inactive</option></select><div class="actions"><button type="button" id="cancel">Cancel</button><button>Save</button></div></form></div>
+<script src="app.js"></script></body></html>
