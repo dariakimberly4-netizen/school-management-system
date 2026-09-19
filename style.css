@@ -42,3 +42,15 @@
 .quickActions .quickLink{display:flex;align-items:center;justify-content:center;min-height:58px;flex:1;border-radius:12px;padding:13px 16px;background:#12365e;color:#fff!important;font-weight:800;text-decoration:none;box-sizing:border-box;touch-action:manipulation;pointer-events:auto}.quickActions .quickLink.secondary{background:#eef3f8;color:#12365e!important}@media(max-width:600px){.quickActions .quickLink{flex-basis:100%;width:100%}}
 
 .attentionBox{margin:0 0 16px;padding:18px;border-radius:18px;background:#fff;border:1px solid #e0e7ef;display:flex;flex-direction:column;gap:8px}.attentionBox b{font-size:12px;letter-spacing:1px}.attentionBox strong{font-size:16px;line-height:1.45}
+
+/* v23: fit all 8 Student Orbit nodes fully inside phone viewport */
+@media(max-width:600px){
+.studentOrbit{height:540px!important;min-height:540px!important;width:100%!important;overflow:hidden!important;margin:0 auto!important}
+.studentOrbit .orbitRing{width:238px!important;height:238px!important;top:260px!important}
+.studentOrbit .orbitCenter{top:260px!important;width:126px!important;height:126px!important}
+.studentOrbit .orbitModules .module{width:68px!important;height:68px!important;min-height:68px!important;top:260px!important;transform:translate(-50%,-50%) rotate(var(--a)) translateY(-154px) rotate(calc(-1 * var(--a)))!important;padding:5px!important}
+.studentOrbit .orbitModules .module i{font-size:21px!important;margin-bottom:2px!important}
+.studentOrbit .orbitModules .module h3{font-size:9px!important;line-height:1.05!important;margin:0!important;max-width:62px!important}
+.studentOrbit .orbitModules .module p{display:none!important}
+.studentOrbit .orbitModules .module:nth-child(1){--a:0deg}.studentOrbit .orbitModules .module:nth-child(2){--a:45deg}.studentOrbit .orbitModules .module:nth-child(3){--a:90deg}.studentOrbit .orbitModules .module:nth-child(4){--a:135deg}.studentOrbit .orbitModules .module:nth-child(5){--a:180deg}.studentOrbit .orbitModules .module:nth-child(6){--a:225deg}.studentOrbit .orbitModules .module:nth-child(7){--a:270deg}.studentOrbit .orbitModules .module:nth-child(8){--a:315deg}
+}
