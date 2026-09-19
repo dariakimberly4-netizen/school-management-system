@@ -4,6 +4,7 @@ const seed={Students:[["2026-0001 · Mia Santos","Grade 7 – Rizal","Active"],[
 let current="",data=JSON.parse(localStorage.getItem("schoolData")||"{}");Object.keys(seed).forEach(k=>data[k]??=seed[k]);function save(){localStorage.setItem("schoolData",JSON.stringify(data))}
 const $=id=>document.getElementById(id);
 $("loginBtn").onclick=()=>{if($("username").value==="admin"&&$("password").value==="school123"){ $("login").classList.add("hidden");$("app").classList.remove("hidden");$("roleTag").textContent=$("role").value.toUpperCase();renderHome()}else alert("Use demo login: admin / school123")};
+$("oneTap").onclick=()=>{$("username").value="admin";$("password").value="school123";$("loginBtn").click()};
 $("logout").onclick=()=>location.reload();
 function renderHome(){$("stats").innerHTML=[["1,248","Students"],["68","Teachers"],["42","Classes"],["96%","Attendance"]].map(x=>'<div class="stat"><b>'+x[0]+'</b><span>'+x[1]+'</span></div>').join("");$("modules").innerHTML=modules.map((m,i)=>'<div class="module" data-i="'+i+'"><i>'+m[1]+'</i><h3>'+m[0]+'</h3><p>'+m[2]+'</p></div>').join("");document.querySelectorAll(".module").forEach(x=>x.onclick=()=>openModule(modules[x.dataset.i][0]))}
 function openModule(name){current=name;data[current]??=[];$("home").classList.add("hidden");$("workspace").classList.remove("hidden");$("wsTitle").textContent=name;$("search").value="";renderRows()}
