@@ -92,5 +92,5 @@ function showQuickView(){if(document.getElementById("role").value!=="Student")re
 function backToOrbit(){quickView.classList.add("hidden");document.getElementById("workspace").classList.add("hidden");document.getElementById("home").classList.remove("hidden")}
 if(orbitCenterBtn)orbitCenterBtn.onclick=showQuickView;
 ["quickBack","quickOrbit"].forEach(id=>document.getElementById(id).onclick=backToOrbit);
-document.getElementById("myDay").onclick=()=>openModule("Academics");
-document.getElementById("viewNotifications").onclick=()=>openModule("Updates");
+document.getElementById("myDay").onclick=()=>{quickView.classList.add("hidden");openModule("Academics")};
+document.getElementById("viewNotifications").onclick=()=>{quickView.classList.add("hidden");openModule("Updates")};
