@@ -86,3 +86,11 @@ function openModule(name){current=name;const banner=document.getElementById("stu
 $("back").onclick=()=>{$("workspace").classList.add("hidden");$("home").classList.remove("hidden")};
 function renderRows(){let q=$("search").value.toLowerCase(),rows=(data[current]||[]).filter(r=>r.join(" ").toLowerCase().includes(q));$("content").innerHTML='<div class="table"><table><thead><tr><th>Record</th><th>Details</th><th>Status</th><th></th></tr></thead><tbody>'+ (rows.length?rows.map((r,i)=>'<tr><td><b>'+r[0]+'</b></td><td>'+r[1]+'</td><td><span class="pill">'+r[2]+'</span></td><td><button class="del" data-name="'+encodeURIComponent(r[0])+'">Delete</button></td></tr>').join(""):'<tr><td colspan="4">No records yet. Tap “Add Record”.</td></tr>')+'</tbody></table></div>';document.querySelectorAll(".del").forEach(b=>b.onclick=()=>{let n=decodeURIComponent(b.dataset.name);data[current]=data[current].filter(r=>r[0]!==n);save();renderRows()})}
 $("search").oninput=renderRows;$("addBtn").onclick=()=>{$("modal").classList.remove("hidden");$("formTitle").textContent="Add "+current+" Record";$("fName").focus()};$("cancel").onclick=()=>$("modal").classList.add("hidden");$("recordForm").onsubmit=e=>{e.preventDefault();data[current].push([$("fName").value,$("fDetails").value,$("fStatus").value]);save();e.target.reset();$("modal").classList.add("hidden");renderRows()};
+
+const orbitCenterBtn=document.getElementById("orbitCenterBtn"),quickView=document.getElementById("quickView");
+function showQuickView(){if(document.getElementById("role").value!=="Student")return;document.getElementById("home").classList.add("hidden");document.getElementById("workspace").classList.add("hidden");quickView.classList.remove("hidden")}
+function backToOrbit(){quickView.classList.add("hidden");document.getElementById("workspace").classList.add("hidden");document.getElementById("home").classList.remove("hidden")}
+if(orbitCenterBtn)orbitCenterBtn.onclick=showQuickView;
+["quickBack","quickOrbit"].forEach(id=>document.getElementById(id).onclick=backToOrbit);
+document.getElementById("myDay").onclick=()=>openModule("Academics");
+document.getElementById("viewNotifications").onclick=()=>openModule("Updates");
