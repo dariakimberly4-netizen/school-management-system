@@ -7,16 +7,14 @@ $("loginBtn").onclick=()=>{if($("username").value==="admin"&&$("password").value
 document.querySelectorAll(".roleDemo").forEach(b=>b.onclick=()=>{$("role").value=b.dataset.role;$("username").value="admin";$("password").value="school123";$("loginBtn").click()});
 $("logout").onclick=()=>location.reload();
 const studentModules=[
-["My Student Profile","👤","Personal Information • Student ID • Grade & Section • Adviser • Guardian Information"],
-["Academics","📚","My Subjects • My Schedule • Assignments • Learning Materials"],
-["Grades","📊","Current Grades • Quarterly Grades • Final Grades • Report Card • Academic History"],
-["Attendance","✅","Daily Attendance • Late Records • Absences • Attendance Summary"],
-["My Account","💳","Tuition Balance • Payment History • Official Receipts • Other Fees"],
-["School Life","📅","School Calendar • Events • Activities • Holidays • Examination Schedule"],
-["Updates","📢","Announcements • Notifications • Teacher Messages • School Messages"],
-["Documents","📁","Enrollment Requirements • Certificates • School Forms • Downloadable Documents"],
-["Achievements","🏆","Honors • Awards • Certificates • Recognitions"],
-["Student Services","🆘","Registrar • Accounting Help • Guidance Office • Technical Help"],["Assignment Submission","📤","Upload • Status • Feedback • Resubmit"],["Grade Details","🧮","Quizzes • Tasks • Exams • Remarks"],["Attendance Calendar","🗓️","Monthly attendance • Late • Absent • Excused"],["Document Requests","📄","Request • Track • Download"],["Student ID / QR","🪪","Digital ID • QR Verification • ID Status"]
+["My Profile","👤","Profile • Student ID / QR • Adviser • Guardian • Security"],
+["Academics","📚","Subjects • Schedule • Materials • Exams • Consultation"],
+["Assignments","📝","To Do • Upload • Submitted • Feedback • Resubmit"],
+["Grades & Attendance","📊","Grades • Breakdown • Report Card • Attendance • Absences"],
+["My Account","💳","Assessment • Balance • Due Dates • Payments • Receipts"],
+["School Hub","📢","Announcements • Inbox • Notifications • Calendar • Events"],
+["Documents","📁","Requirements • Requests • Tracking • Certificates • Downloads"],
+["Student Services","🆘","Registrar • Accounting • Guidance • Library • Clinic • Support"]
 ];
 function renderHome(){const isStudent=$("role").value==="Student";const activeModules=isStudent?studentModules:modules;$("orbitShell").classList.toggle("studentOrbit",isStudent);$("orbitRole").textContent=isStudent?"STUDENT":"SCHOOL";$("orbitTitle").textContent="COMMAND CENTER";$("stats").innerHTML=[["1,248","Students"],["68","Teachers"],["42","Classes"],["96%","Attendance"]].map(x=>'<div class="stat"><b>'+x[0]+'</b><span>'+x[1]+'</span></div>').join("");$("modules").innerHTML=activeModules.map((m,i)=>'<div class="module" data-i="'+i+'"><i>'+m[1]+'</i><h3>'+m[0]+'</h3><p>'+m[2]+'</p></div>').join("");document.querySelectorAll(".module").forEach(x=>x.onclick=()=>openModule(activeModules[x.dataset.i][0]))}
 const studentDemo={
@@ -69,18 +67,16 @@ const studentDemo={
 "Guidance Request":["Guidance Office","No active request • Request an appointment"],
 "Technical Help":["ICT Help Desk","Account and portal support"],
 "Emergency Contacts":["School Clinic","Local 105 • Guardian: Maria Santos"],"Upload Assignment":["Science Project","Due Sep 25, 2026 • PDF/JPG/DOCX • Not submitted"],"Submission Status":["Science Project • Pending","Due Sep 25, 2026 • Submit before 11:59 PM"],"Teacher Feedback":["Mathematics Activity 3","Great work • Score 18/20 • Ms. Ana Cruz"],"Resubmit":["English Essay","Revision allowed • Due Sep 22, 2026"],"Quiz Scores":["Mathematics","Quiz 1: 18/20 • Quiz 2: 19/20"],"Performance Tasks":["Science","Project: 47/50 • Laboratory: 28/30"],"Exam Scores":["Quarter 1","Mathematics 91 • Science 94 • English 90"],"Teacher Remarks":["Ms. Ana Cruz","Very good progress. Continue practicing problem solving."],"Monthly Attendance":["September 2026","Present 14 • Late 1 • Absent 0"],"Present / Late / Absent":["96% attendance","Present 43 • Late 1 • Absent 1"],"Excused Records":["Aug 18, 2026","Excused • Medical appointment"],"Ready for Download":["Certificate of Enrollment","Ready • PDF available"],"Digital Student ID":["Mia Santos • 2026-0001","Grade 7 – Rizal • AY 2026–2027"],"QR Verification":["Student QR","Active • Verified school record"],"ID Status":["Physical ID","Ready for claiming at Registrar"]
-};
+,"To Do":["2 assignments due","Science Project • English Essay"],"Upcoming":["Science Project","Due Sep 25, 2026"],"Submitted":["Mathematics Activity 3","Submitted Sep 18 • 9:42 PM"],"Late / Missing":["No missing work","All required submissions accounted for"],"Scores":["Latest assignment: 18/20","Mathematics Activity 3"],"Submission History":["3 submissions this quarter","Latest: Mathematics Activity 3"],"Grade Breakdown":["General Average 91.4","Written 92 • Performance 93 • Exam 89"],"Attendance Calendar":["September 2026","Present 14 • Late 1 • Absent 0"],"Assessment":["AY 2026–2027","Total ₱18,000 • Paid ₱14,500"],"Upcoming Due Date":["₱3,500","Due Oct 5, 2026"],"Statement of Account":["Current balance ₱3,500","Updated Sep 19, 2026 • Ready to view"],"Inbox / Messages":["2 unread messages","Ms. Ana Cruz • Registrar"],"Urgent Notices":["No urgent notices","You are all caught up"],"Notification History":["3 this week","Grade posted • Assignment due • ID ready"],"Exam Results":["Quarter 1 preliminary","Mathematics 91 • Science 94"],"Teacher Consultation":["Ms. Ana Cruz","Tue & Thu • 3:30–4:00 PM"],"Login History":["Today • Android","Successful login"],"Library Loans":["1 borrowed book","Science Explorer • Due Sep 28"],"Clinic / Emergency":["School Clinic","Local 105 • Emergency contact on file"],"Support Ticket":["No open tickets","Create a support request anytime"],"Report a Problem":["Student Portal Help","Report account, class or document issues"]};
 const studentSubmenus={
-"My Student Profile":["Personal Information","Student ID / QR","Grade & Section","Adviser","Guardian & Emergency Contacts","Security / Change Password"],
-"Academics":["My Subjects","My Schedule","Assignments & Submission","Upload Assignment","Submission Status","Teacher Feedback","Resubmit","Learning Materials","Exam Schedule & Results"],
-"Grades":["Current Grades","Quarterly Grades","Final Grades","Report Card","Academic History"],
-"Attendance":["Daily Attendance","Late Records","Absences","Submit Absence Explanation","Attendance Summary"],
-"My Account":["Tuition Balance","Payment History","Official Receipts","Other Fees"],
-"School Life":["School Calendar","Events","Activities","Holidays","Examination Schedule"],
-"Updates":["Announcements","Notifications","Teacher Messages","School Messages"],
-"Documents":["Enrollment Requirements","Request Document","Request Tracking","Certificates","School Forms","Downloads"],
-"Achievements":["Honors","Awards","Certificates","Recognitions"],
-"Student Services":["Registrar Help","Accounting Help","Guidance Request","Technical Help","Emergency Contacts"],"Assignment Submission":["Upload Assignment","Submission Status","Teacher Feedback","Resubmit"],"Grade Details":["Quiz Scores","Performance Tasks","Exam Scores","Teacher Remarks"],"Attendance Calendar":["Monthly Attendance","Present / Late / Absent","Excused Records"],"Document Requests":["Request Document","Request Tracking","Ready for Download"],"Student ID / QR":["Digital Student ID","QR Verification","ID Status"]
+"My Profile":["Personal Information","Student ID / QR","Grade & Section","Adviser","Guardian & Emergency Contacts","Security / Change Password","Login History"],
+"Academics":["My Subjects","My Schedule","Learning Materials","Exam Schedule & Results","Exam Results","Teacher Consultation"],
+"Assignments":["To Do","Upcoming","Upload Assignment","Submission Status","Submitted","Late / Missing","Teacher Feedback","Scores","Resubmit","Submission History"],
+"Grades & Attendance":["Current Grades","Grade Breakdown","Quarterly Grades","Final Grades","Report Card","Academic History","Attendance Calendar","Late Records","Absences","Submit Absence Explanation"],
+"My Account":["Assessment","Tuition Balance","Upcoming Due Date","Payment History","Official Receipts","Statement of Account","Other Fees"],
+"School Hub":["Announcements","Notifications","Inbox / Messages","Urgent Notices","Notification History","School Calendar","Events","Activities","Holidays"],
+"Documents":["Enrollment Requirements","Request Document","Request Tracking","Certificates","School Forms","Downloads","Ready for Download"],
+"Student Services":["Registrar Help","Accounting Help","Guidance Request","Library Loans","Clinic / Emergency","Technical Help","Support Ticket","Report a Problem"]
 };
 function openModule(name){current=name;const banner=document.getElementById("studentDemoBanner");if(banner)banner.classList.toggle("hidden",document.getElementById("role").value!=="Student");$("home").classList.add("hidden");$("workspace").classList.remove("hidden");$("wsTitle").textContent=name;$("search").value="";const isStudent=$("role").value==="Student";if(isStudent&&studentSubmenus[name]){ $("addBtn").style.display="none";$("search").style.display="none";$("content").innerHTML='<p class="demoLabel">DEMO STUDENT • MIA SANTOS</p><div class="studentSubmenu">'+studentSubmenus[name].map(x=>{const d=studentDemo[x]||["Demo record","Sample student information"];return '<button type="button" class="subMenuBtn"><div><b>'+x+'</b><small>'+d[0]+'</small><em>'+d[1]+'</em></div><span>Open →</span></button>'}).join("")+'</div>';document.querySelectorAll(".subMenuBtn").forEach(b=>b.onclick=()=>{const key=b.querySelector("b").textContent,d=studentDemo[key]||["Demo record","Sample student information"]; $("content").innerHTML='<div class="studentDetail"><button type="button" class="subBack">← Back to '+name+'</button><p class="demoLabel">DEMO STUDENT • MIA SANTOS</p><h2>'+key+'</h2><div class="demoRecord"><strong>'+d[0]+'</strong><span>'+d[1]+'</span></div><p>Official grades, attendance, payments and profile records are view-only.</p></div>';$("content").querySelector(".subBack").onclick=()=>openModule(name)});return}$("addBtn").style.display="";$("search").style.display="";data[current]??=[];renderRows()}
 $("back").onclick=()=>{$("workspace").classList.add("hidden");$("home").classList.remove("hidden")};
