@@ -72,7 +72,7 @@ const studentDemo={
 };
 const studentSubmenus={
 "My Student Profile":["Personal Information","Student ID / QR","Grade & Section","Adviser","Guardian & Emergency Contacts","Security / Change Password"],
-"Academics":["My Subjects","My Schedule","Assignments & Submission","Learning Materials","Exam Schedule & Results"],
+"Academics":["My Subjects","My Schedule","Assignments & Submission","Upload Assignment","Submission Status","Teacher Feedback","Resubmit","Learning Materials","Exam Schedule & Results"],
 "Grades":["Current Grades","Quarterly Grades","Final Grades","Report Card","Academic History"],
 "Attendance":["Daily Attendance","Late Records","Absences","Submit Absence Explanation","Attendance Summary"],
 "My Account":["Tuition Balance","Payment History","Official Receipts","Other Fees"],
