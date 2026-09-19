@@ -54,3 +54,13 @@
 .studentOrbit .orbitModules .module p{display:none!important}
 .studentOrbit .orbitModules .module:nth-child(1){--a:0deg}.studentOrbit .orbitModules .module:nth-child(2){--a:45deg}.studentOrbit .orbitModules .module:nth-child(3){--a:90deg}.studentOrbit .orbitModules .module:nth-child(4){--a:135deg}.studentOrbit .orbitModules .module:nth-child(5){--a:180deg}.studentOrbit .orbitModules .module:nth-child(6){--a:225deg}.studentOrbit .orbitModules .module:nth-child(7){--a:270deg}.studentOrbit .orbitModules .module:nth-child(8){--a:315deg}
 }
+
+/* v24 hard mobile containment */
+@media(max-width:600px){
+#orbitShell.studentOrbit{height:470px!important;min-height:470px!important;max-width:100vw!important;overflow:hidden!important;position:relative!important}
+#orbitShell.studentOrbit .orbitRing{width:210px!important;height:210px!important;left:50%!important;top:235px!important;transform:translate(-50%,-50%)!important}
+#orbitShell.studentOrbit .orbitCenter{left:50%!important;top:235px!important;width:116px!important;height:116px!important;transform:translate(-50%,-50%)!important}
+#orbitShell.studentOrbit .orbitModules .module{width:62px!important;height:62px!important;min-height:62px!important;left:50%!important;top:235px!important;padding:4px!important;transform:translate(-50%,-50%) rotate(var(--a)) translateY(-132px) rotate(calc(-1 * var(--a)))!important}
+#orbitShell.studentOrbit .orbitModules .module i{font-size:18px!important}
+#orbitShell.studentOrbit .orbitModules .module h3{font-size:8px!important;line-height:1!important}
+}
