@@ -10,3 +10,7 @@
 @media(max-width:850px){.orbitShell{height:auto;width:100%;padding-top:230px}.orbitRing{width:210px;height:210px;top:105px}.orbitCenter{top:105px;width:160px;height:160px}.orbitModules{position:relative;display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.orbitModules .module,.orbitModules .module:nth-child(n){position:static;width:100%;height:118px;border-radius:24px}.orbitModules .module p{display:block;font-size:11px}.welcome{text-align:center}}
 
 #oneTap{background:#f5c75b!important;color:#10233f!important;margin-bottom:0!important}#oneTap:active{transform:scale(.98)}
+
+
+/* One-tap role demo selector */
+.roleDemos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:14px 0}.roleDemo{min-height:54px;border:1px solid #d9b95f;border-radius:14px;background:#f6cc68;color:#10233f;font-weight:800;font-size:14px;cursor:pointer}.roleDemo:last-child:nth-child(odd){grid-column:1/-1}.roleDemo:active{transform:scale(.98)}@media(max-width:480px){.roleDemos{grid-template-columns:1fr}.roleDemo:last-child:nth-child(odd){grid-column:auto}}
