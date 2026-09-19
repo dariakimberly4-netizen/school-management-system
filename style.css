@@ -26,3 +26,7 @@
 
 /* Ten-node Student Orbit */
 @media(max-width:850px){.studentOrbit .orbitModules .module:nth-child(1){--a:0deg}.studentOrbit .orbitModules .module:nth-child(2){--a:36deg}.studentOrbit .orbitModules .module:nth-child(3){--a:72deg}.studentOrbit .orbitModules .module:nth-child(4){--a:108deg}.studentOrbit .orbitModules .module:nth-child(5){--a:144deg}.studentOrbit .orbitModules .module:nth-child(6){--a:180deg}.studentOrbit .orbitModules .module:nth-child(7){--a:216deg}.studentOrbit .orbitModules .module:nth-child(8){--a:252deg}.studentOrbit .orbitModules .module:nth-child(9){--a:288deg}.studentOrbit .orbitModules .module:nth-child(10){--a:324deg}}
+
+
+/* Student submenu workspaces */
+.studentSubmenu{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:18px}.subMenuBtn{min-height:86px;border:1px solid #dce5ee;border-radius:18px;background:#fff;color:#10233f;padding:18px;text-align:left;display:flex;align-items:center;justify-content:space-between;box-shadow:0 5px 18px #1834510c;cursor:pointer}.subMenuBtn b{font-size:15px}.subMenuBtn span{color:#a67b16;font-weight:800}.studentDetail{margin-top:18px;background:#fff;border:1px solid #e0e7ef;border-radius:20px;padding:24px}.studentDetail h2{margin:18px 0 8px}.studentDetail p{color:#607086;line-height:1.6}.subBack{border:0;border-radius:10px;background:#eef3f8;color:#12365e;padding:10px 13px;font-weight:700}@media(max-width:600px){.studentSubmenu{grid-template-columns:1fr}.subMenuBtn{min-height:72px}}
