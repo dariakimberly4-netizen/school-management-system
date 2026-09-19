@@ -6,7 +6,18 @@ const $=id=>document.getElementById(id);
 $("loginBtn").onclick=()=>{if($("username").value==="admin"&&$("password").value==="school123"){ $("login").classList.add("hidden");$("app").classList.remove("hidden");$("roleTag").textContent=$("role").value.toUpperCase();renderHome()}else alert("Use demo login: admin / school123")};
 document.querySelectorAll(".roleDemo").forEach(b=>b.onclick=()=>{$("role").value=b.dataset.role;$("username").value="admin";$("password").value="school123";$("loginBtn").click()});
 $("logout").onclick=()=>location.reload();
-const studentModules=[["My Profile","👤","Student ID, grade, section and guardian"],["My Schedule","📅","Today’s classes, rooms and teachers"],["My Attendance","✅","Present, late and absence history"],["My Grades","📊","Quarterly and final grades"],["Assignments","📝","Due dates and submission status"],["My Subjects","📚","Subjects and teachers"],["Report Card","📄","View and print report card"],["My Account","💳","Tuition balance, payments and receipts"],["Announcements","📢","School and class notices"],["School Calendar","🗓️","Exams, holidays and activities"],["Documents","📁","Certificates, forms and requirements"],["Messages","💬","Teacher and school communication"],["Notifications","🔔","Grades, assignments and account alerts"],["Achievements","🏆","Honors, awards and certificates"],["Student Services","🆘","Registrar, accounting and help"]];
+const studentModules=[
+["My Student Profile","👤","Personal Information • Student ID • Grade & Section • Adviser • Guardian Information"],
+["Academics","📚","My Subjects • My Schedule • Assignments • Learning Materials"],
+["Grades","📊","Current Grades • Quarterly Grades • Final Grades • Report Card • Academic History"],
+["Attendance","✅","Daily Attendance • Late Records • Absences • Attendance Summary"],
+["My Account","💳","Tuition Balance • Payment History • Official Receipts • Other Fees"],
+["School Life","📅","School Calendar • Events • Activities • Holidays • Examination Schedule"],
+["Updates","📢","Announcements • Notifications • Teacher Messages • School Messages"],
+["Documents","📁","Enrollment Requirements • Certificates • School Forms • Downloadable Documents"],
+["Achievements","🏆","Honors • Awards • Certificates • Recognitions"],
+["Student Services","🆘","Registrar • Accounting Help • Guidance Office • Technical Help"]
+];
 function renderHome(){const isStudent=$("role").value==="Student";const activeModules=isStudent?studentModules:modules;$("orbitShell").classList.toggle("studentOrbit",isStudent);$("orbitRole").textContent=isStudent?"STUDENT":"SCHOOL";$("orbitTitle").textContent="COMMAND CENTER";$("stats").innerHTML=[["1,248","Students"],["68","Teachers"],["42","Classes"],["96%","Attendance"]].map(x=>'<div class="stat"><b>'+x[0]+'</b><span>'+x[1]+'</span></div>').join("");$("modules").innerHTML=activeModules.map((m,i)=>'<div class="module" data-i="'+i+'"><i>'+m[1]+'</i><h3>'+m[0]+'</h3><p>'+m[2]+'</p></div>').join("");document.querySelectorAll(".module").forEach(x=>x.onclick=()=>openModule(activeModules[x.dataset.i][0]))}
 function openModule(name){current=name;data[current]??=[];$("home").classList.add("hidden");$("workspace").classList.remove("hidden");$("wsTitle").textContent=name;$("search").value="";renderRows()}
 $("back").onclick=()=>{$("workspace").classList.add("hidden");$("home").classList.remove("hidden")};
